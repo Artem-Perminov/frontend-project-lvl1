@@ -14,5 +14,5 @@
 <p>4. To start any of these games just insert its title to terminal (for example: brain-even)</p>
 
 <h2>Example of installing and launching a game:</h2> 
-
+<p><li>Brain-even</li></p>
 <a href="https://asciinema.org/a/wCnTKy5t2jQrMPOBpPwQJq2xB" target="_blank"><img src="https://asciinema.org/a/wCnTKy5t2jQrMPOBpPwQJq2xB.svg" /></a>
