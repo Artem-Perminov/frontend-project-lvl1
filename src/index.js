@@ -43,6 +43,18 @@ const conditionsForVictory = () => 3;
 const victory = (uName) => {
   console.log(`Congratulations, ${uName}!\nYou have won!`);
 };
+const getGcd = (n1, n2) => {
+  const minValue = Math.min(...[n1, n2]);
+  const maxValue = Math.max(...[n1, n2]);
+  let result;
+  for (let i = minValue; i > 0; i -= 1) {
+    if (maxValue % i === 0 && minValue % i === 0) {
+      result = i;
+      break;
+    }
+  }
+  return result;
+};
 
 export {
   getRandomNumber,
@@ -55,5 +67,6 @@ export {
   conditionsForVictory,
   victory,
   getRandomOperator,
-  expressionResult
+  expressionResult,
+  getGcd
 };
