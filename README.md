@@ -16,3 +16,5 @@
 <h2>Example of installing and launching a game:</h2> 
 <p><li>Brain-even</li></p>
 <a href="https://asciinema.org/a/wCnTKy5t2jQrMPOBpPwQJq2xB" target="_blank"><img src="https://asciinema.org/a/wCnTKy5t2jQrMPOBpPwQJq2xB.svg" /></a>
+<p><li>Brain-calc</li></p>
+<a href="https://asciinema.org/a/yWqvHeFg5XEnoL2yWt8Fx5cZ7" target="_blank"><img src="https://asciinema.org/a/yWqvHeFg5XEnoL2yWt8Fx5cZ7.svg" /></a>
