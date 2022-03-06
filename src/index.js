@@ -55,6 +55,28 @@ const getGcd = (n1, n2) => {
   }
   return result;
 };
+const getProgression = (coeff) => {
+  const progression = [];
+  let firstRanNum = Math.floor(Math.random() * 100);
+  const cycleLength = 10;
+  for (let i = 0; i < cycleLength; i += 1) {
+    progression.push(firstRanNum + coeff);
+    firstRanNum = progression[progression.length - 1];
+  }
+  const posHiddenElement = Math.floor(Math.random() * 10);
+  progression[posHiddenElement] = '..';
+  return progression.join(' ');
+};
+const getProgressionNum = (progr, coeff) => {
+  let result;
+  const valuesArr = progr.split(' ');
+  if (valuesArr.indexOf('..') === 0) {
+    result = Number(valuesArr[1]) - coeff;
+  } else {
+    result = Number(valuesArr[valuesArr.indexOf('..') - 1]) + coeff;
+  }
+  return result;
+};
 
 export {
   getRandomNumber,
@@ -68,5 +90,7 @@ export {
   victory,
   getRandomOperator,
   expressionResult,
-  getGcd
+  getGcd,
+  getProgression,
+  getProgressionNum
 };

@@ -5,7 +5,7 @@
 
 <h2>Welcome to my first project "Brain Games"!</h2>
 
-<h3><b>To install any of these games:</b></h3>
+<h3><b>To install any of these console games:</b></h3>
 <p>1. Please <b>git clone</b> repository - "https://github.com/Artem-Perminov/frontend-project-lvl1.git"</p>
 <p>2. Now run terminal and go to directory <b>frontend-project-lvl1</b>
 <p>3. Now run these commands in terminal:
