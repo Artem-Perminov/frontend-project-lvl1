@@ -18,7 +18,7 @@ const brainGcd = () => {
     const randomNum1 = getRandomNumber(100) + 10;
     const randomNum2 = getRandomNumber(100) + 10;
     const result = getGcd(randomNum1, randomNum2);
-    console.log(`Question: ${randomNum1} and ${randomNum2}`);
+    console.log(`Question: ${randomNum1} ${randomNum2}`);
     const userAnswer = answer();
     if (userAnswer.toString() === result.toString()) {
       countCorrectAnswers = rightAnswer(countCorrectAnswers);
