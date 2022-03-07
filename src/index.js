@@ -28,7 +28,7 @@ const countOfRounds = 3;
 const greeting = () => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi my friend, ${userName}!`);
+  console.log(`Hello, ${userName}!`);
   return userName;
 };
 const answer = () => readlineSync.question('Your answer: ');
