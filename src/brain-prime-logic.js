@@ -5,7 +5,7 @@ import {
   wrongAnswer,
   rightAnswer,
   conditionsForVictory,
-  victory, checkNumberPrime, getRandomNumber
+  victory, checkNumberPrime, getRandomNumber,
 } from './index.js';
 
 const brainPrime = () => {
@@ -52,5 +52,5 @@ const brainPrime = () => {
   }
 };
 export {
-  brainPrime
+  brainPrime,
 };

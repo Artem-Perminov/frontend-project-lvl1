@@ -6,7 +6,7 @@ import {
   rightAnswer,
   conditionsForVictory,
   victory,
-  getProgression, getProgressionNum
+  getProgression, getProgressionNum,
 } from './index.js';
 
 const brainProgression = () => {
@@ -32,5 +32,5 @@ const brainProgression = () => {
   }
 };
 export {
-  brainProgression
+  brainProgression,
 };

@@ -8,7 +8,7 @@ import {
   conditionsForVictory,
   victory,
   getRandomOperator,
-  expressionResult
+  expressionResult,
 } from './index.js';
 
 const brainCalc = () => {
@@ -35,5 +35,5 @@ const brainCalc = () => {
   }
 };
 export {
-  brainCalc
+  brainCalc,
 };

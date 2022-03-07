@@ -7,7 +7,7 @@ import {
   wrongAnswer,
   rightAnswer,
   conditionsForVictory,
-  victory
+  victory,
 } from './index.js';
 
 const brainEven = () => {
@@ -53,5 +53,5 @@ const brainEven = () => {
   }
 };
 export {
-  brainEven
+  brainEven,
 };

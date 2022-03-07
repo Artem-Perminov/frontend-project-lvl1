@@ -7,7 +7,7 @@ import {
   rightAnswer,
   conditionsForVictory,
   victory,
-  getGcd
+  getGcd,
 } from './index.js';
 
 const brainGcd = () => {
@@ -33,5 +33,5 @@ const brainGcd = () => {
   }
 };
 export {
-  brainGcd
+  brainGcd,
 };

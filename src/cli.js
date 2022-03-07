@@ -5,5 +5,5 @@ const userNameRequest = () => {
   console.log(`Hello, ${userName}!`);
 };
 export {
-  userNameRequest
+  userNameRequest,
 };

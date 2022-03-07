@@ -101,5 +101,5 @@ export {
   getGcd,
   getProgression,
   getProgressionNum,
-  checkNumberPrime
+  checkNumberPrime,
 };
