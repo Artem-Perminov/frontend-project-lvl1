@@ -33,7 +33,7 @@ const greeting = () => {
 };
 const answer = () => readlineSync.question('Your answer: ');
 const wrongAnswer = (userAnswer, userName, correctAnswer) => {
-  console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${userName}`);
+  console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${userName}!`);
 };
 const rightAnswer = (value) => {
   console.log('Correct!');
