@@ -77,6 +77,14 @@ const getProgressionNum = (progr, coeff) => {
   }
   return result;
 };
+const checkNumberPrime = (num) => {
+  for (let i = 2; i < num - 1; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
 
 export {
   getRandomNumber,
@@ -92,5 +100,6 @@ export {
   expressionResult,
   getGcd,
   getProgression,
-  getProgressionNum
+  getProgressionNum,
+  checkNumberPrime
 };
