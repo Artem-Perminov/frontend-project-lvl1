@@ -31,6 +31,4 @@ const brainProgression = () => {
     }
   }
 };
-export {
-  brainProgression,
-};
+export default brainProgression;

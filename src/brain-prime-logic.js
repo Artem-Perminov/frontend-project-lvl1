@@ -51,6 +51,4 @@ const brainPrime = () => {
     }
   }
 };
-export {
-  brainPrime,
-};
+export default brainPrime;

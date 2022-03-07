@@ -32,6 +32,4 @@ const brainGcd = () => {
     }
   }
 };
-export {
-  brainGcd,
-};
+export default brainGcd;
