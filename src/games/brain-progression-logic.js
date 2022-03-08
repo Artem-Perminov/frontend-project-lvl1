@@ -1,5 +1,4 @@
 import {
-  getRandomNumber,
   countOfRounds,
   greeting,
   answer,
@@ -7,20 +6,18 @@ import {
   rightAnswer,
   conditionsForVictory,
   victory,
-  getRandomOperator,
-  expressionResult,
-} from './index.js';
+  getProgression, getProgressionNum,
+} from '../index.js';
 
-const brainCalc = () => {
+const brainProgression = () => {
   const userName = greeting();
-  console.log('What is the result of the expression?');
+  console.log('What number is missing in the progression?');
   let countCorrectAnswers = 0;
   for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNum1 = getRandomNumber(100);
-    const randomNum2 = getRandomNumber(100);
-    const randomOperator = getRandomOperator(10);
-    const result = expressionResult(randomNum1, randomNum2, randomOperator);
-    console.log(`Question: ${randomNum1} ${randomOperator} ${randomNum2}`);
+    const progCoeff = Math.floor(Math.random() * 10 + 1);
+    const progression = getProgression(progCoeff);
+    const result = getProgressionNum(progression, progCoeff);
+    console.log(`Question: ${progression}`);
     const userAnswer = answer();
     if (userAnswer.toString() === result.toString()) {
       countCorrectAnswers = rightAnswer(countCorrectAnswers);
@@ -34,4 +31,4 @@ const brainCalc = () => {
     }
   }
 };
-export default brainCalc;
+export default brainProgression;

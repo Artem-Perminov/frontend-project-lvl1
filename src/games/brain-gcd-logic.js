@@ -1,4 +1,5 @@
 import {
+  getRandomNumber,
   countOfRounds,
   greeting,
   answer,
@@ -6,18 +7,18 @@ import {
   rightAnswer,
   conditionsForVictory,
   victory,
-  getProgression, getProgressionNum,
-} from './index.js';
+  getGcd,
+} from '../index.js';
 
-const brainProgression = () => {
+const brainGcd = () => {
   const userName = greeting();
-  console.log('What number is missing in the progression?');
+  console.log('Find the greatest common divisor of given numbers.');
   let countCorrectAnswers = 0;
   for (let i = 0; i < countOfRounds; i += 1) {
-    const progCoeff = Math.floor(Math.random() * 10 + 1);
-    const progression = getProgression(progCoeff);
-    const result = getProgressionNum(progression, progCoeff);
-    console.log(`Question: ${progression}`);
+    const randomNum1 = getRandomNumber(100) + 10;
+    const randomNum2 = getRandomNumber(100) + 10;
+    const result = getGcd(randomNum1, randomNum2);
+    console.log(`Question: ${randomNum1} ${randomNum2}`);
     const userAnswer = answer();
     if (userAnswer.toString() === result.toString()) {
       countCorrectAnswers = rightAnswer(countCorrectAnswers);
@@ -31,4 +32,4 @@ const brainProgression = () => {
     }
   }
 };
-export default brainProgression;
+export default brainGcd;
