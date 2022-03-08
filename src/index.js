@@ -12,6 +12,7 @@ const getRandomOperator = (max) => {
   if (num > 6) {
     return '*';
   }
+  return true;
 };
 const expressionResult = (n1, n2, operator) => {
   switch (operator) {
@@ -21,7 +22,10 @@ const expressionResult = (n1, n2, operator) => {
       return n1 - n2;
     case '*':
       return n1 * n2;
+    default:
+      break;
   }
+  return true;
 };
 const parityChecking = (num) => num % 2 === 0;
 const countOfRounds = 3;
