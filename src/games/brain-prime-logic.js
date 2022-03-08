@@ -1,24 +1,23 @@
 import {
-  getRandomNumber,
-  parityChecking,
   countOfRounds,
   greeting,
   answer,
   wrongAnswer,
   rightAnswer,
   conditionsForVictory,
-  victory,
-} from './index.js';
+  victory, checkNumberPrime, getRandomNumber,
+} from '../index.js';
 
-const brainEven = () => {
+const brainPrime = () => {
   const userName = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let countCorrectAnswers = 0;
   for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNum = getRandomNumber(100);
-    console.log(`Question: ${randomNum}`);
+    const number = getRandomNumber(100);
+    const result = checkNumberPrime(number);
+    console.log(`Question: ${number}`);
     const userAnswer = answer();
-    if (parityChecking(randomNum) === true) {
+    if (result === true) {
       const correctAnswer = "'yes'";
       switch (userAnswer) {
         case 'yes':
@@ -32,7 +31,7 @@ const brainEven = () => {
           return;
       }
     }
-    if (parityChecking(randomNum) === false) {
+    if (result === false) {
       const correctAnswer = "'no'";
       switch (userAnswer) {
         case 'no':
@@ -52,4 +51,4 @@ const brainEven = () => {
     }
   }
 };
-export default brainEven;
+export default brainPrime;
