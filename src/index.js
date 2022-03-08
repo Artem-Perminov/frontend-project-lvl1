@@ -84,7 +84,7 @@ const getProgressionNum = (progr, coeff) => {
 const checkNumberPrime = (num) => {
   for (let i = 2; i < num - 1; i += 1) {
     if (num === 0) {
-      return false
+      return false;
     }
     if (num % i === 0) {
       return false;
