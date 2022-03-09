@@ -1,35 +1,32 @@
-import {
-  getRandomNumber,
-  countOfRounds,
-  greeting,
-  answer,
-  wrongAnswer,
-  rightAnswer,
-  conditionsForVictory,
-  victory,
-  getGcd,
-} from '../index.js';
+import engine, { roundCount } from '../index.js';
+import { getRandomNumber } from '../helpers.js';
 
-const brainGcd = () => {
-  const userName = greeting();
-  console.log('Find the greatest common divisor of given numbers.');
-  let countCorrectAnswers = 0;
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNum1 = getRandomNumber(100) + 10;
-    const randomNum2 = getRandomNumber(100) + 10;
-    const result = getGcd(randomNum1, randomNum2);
-    console.log(`Question: ${randomNum1} ${randomNum2}`);
-    const userAnswer = answer();
-    if (userAnswer.toString() === result.toString()) {
-      countCorrectAnswers = rightAnswer(countCorrectAnswers);
-    } else {
-      wrongAnswer(userAnswer, userName, result);
-      return;
-    }
-    if (countCorrectAnswers === conditionsForVictory()) {
-      victory(userName);
-      return;
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+const getGcd = (n1, n2) => {
+  const minValue = Math.min(...[n1, n2]);
+  const maxValue = Math.max(...[n1, n2]);
+  let result;
+  for (let i = minValue; i > 0; i -= 1) {
+    if (maxValue % i === 0 && minValue % i === 0) {
+      result = i;
+      break;
     }
   }
+  return result;
 };
+const generateRound = () => {
+  const firstNumber = getRandomNumber(1, 100);
+  const secondNumber = getRandomNumber(1, 100);
+  const correctAnswer = String(getGcd(firstNumber, secondNumber));
+  const question = `${firstNumber} ${secondNumber}`;
+  return [question, correctAnswer];
+};
+const brainGcd = () => {
+  const rounds = [];
+  for (let i = 0; i < roundCount; i += 1) {
+    rounds[i] = generateRound();
+  }
+  return engine(rounds, gameDescription);
+};
+
 export default brainGcd;
