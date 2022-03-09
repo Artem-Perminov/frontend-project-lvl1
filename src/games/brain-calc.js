@@ -1,5 +1,5 @@
 import engine, { roundCount } from '../index.js';
-import { getRandomNumber } from '../helpers.js';
+import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'What is the result of the expression?';
 const getRandomOperator = () => {

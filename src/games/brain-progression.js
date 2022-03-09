@@ -1,5 +1,5 @@
 import engine, { roundCount } from '../index.js';
-import { getRandomNumber } from '../helpers.js';
+import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'What number is missing in the progression?';
 const getProgression = (progCoef) => {

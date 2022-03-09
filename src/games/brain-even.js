@@ -1,5 +1,5 @@
 import engine, { roundCount } from '../index.js';
-import { getRandomNumber } from '../helpers.js';
+import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 const parityChecking = (num) => num % 2 === 0;

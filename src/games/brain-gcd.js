@@ -1,5 +1,5 @@
 import engine, { roundCount } from '../index.js';
-import { getRandomNumber } from '../helpers.js';
+import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 const getGcd = (n1, n2) => {

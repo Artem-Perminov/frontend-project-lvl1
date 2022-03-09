@@ -1,5 +1,5 @@
 import engine, { roundCount } from '../index.js';
-import { getRandomNumber } from '../helpers.js';
+import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const checkNumberPrime = (num) => {
