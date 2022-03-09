@@ -1,37 +1,47 @@
-import {
-  getRandomNumber,
-  countOfRounds,
-  greeting,
-  answer,
-  wrongAnswer,
-  rightAnswer,
-  conditionsForVictory,
-  victory,
-  getRandomOperator,
-  expressionResult,
-} from '../index.js';
+import engine, { roundCount } from '../index.js';
+import getRandomNumber from '../helpers.js';
 
-const brainCalc = () => {
-  const userName = greeting();
-  console.log('What is the result of the expression?');
-  let countCorrectAnswers = 0;
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNum1 = getRandomNumber(100);
-    const randomNum2 = getRandomNumber(100);
-    const randomOperator = getRandomOperator(10);
-    const result = expressionResult(randomNum1, randomNum2, randomOperator);
-    console.log(`Question: ${randomNum1} ${randomOperator} ${randomNum2}`);
-    const userAnswer = answer();
-    if (userAnswer.toString() === result.toString()) {
-      countCorrectAnswers = rightAnswer(countCorrectAnswers);
-    } else {
-      wrongAnswer(userAnswer, userName, result);
-      return;
-    }
-    if (countCorrectAnswers === conditionsForVictory()) {
-      victory(userName);
-      return;
-    }
+const gameDescription = 'What is the result of the expression?';
+const getRandomOperator = () => {
+  const num = Math.floor(Math.random() * 10);
+  if (num <= 3) {
+    return '+';
   }
+  if (num > 3 && num <= 6) {
+    return '-';
+  }
+  if (num > 6) {
+    return '*';
+  }
+  return true;
 };
+const expressionResult = (operator, n1, n2) => {
+  switch (operator) {
+    case '+':
+      return n1 + n2;
+    case '-':
+      return n1 - n2;
+    case '*':
+      return n1 * n2;
+    default:
+      break;
+  }
+  return true;
+};
+const generateRound = () => {
+  const n1 = getRandomNumber(1, 100);
+  const n2 = getRandomNumber(1, 100);
+  const operator = getRandomOperator();
+  const question = `${n1} ${operator} ${n2}`;
+  const correctAnswer = String(expressionResult(operator, n1, n2));
+  return [question, correctAnswer];
+};
+const brainCalc = () => {
+  const rounds = [];
+  for (let i = 0; i < roundCount; i += 1) {
+    rounds[i] = generateRound();
+  }
+  return engine(rounds, gameDescription);
+};
+
 export default brainCalc;

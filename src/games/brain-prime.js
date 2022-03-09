@@ -1,54 +1,29 @@
-import {
-  countOfRounds,
-  greeting,
-  answer,
-  wrongAnswer,
-  rightAnswer,
-  conditionsForVictory,
-  victory, checkNumberPrime, getRandomNumber,
-} from '../index.js';
+import engine, { roundCount } from '../index.js';
+import getRandomNumber from '../helpers.js';
 
-const brainPrime = () => {
-  const userName = greeting();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let countCorrectAnswers = 0;
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const number = getRandomNumber(100);
-    const result = checkNumberPrime(number);
-    console.log(`Question: ${number}`);
-    const userAnswer = answer();
-    if (result === true) {
-      const correctAnswer = "'yes'";
-      switch (userAnswer) {
-        case 'yes':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        case 'Yes':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        default:
-          wrongAnswer(userAnswer, userName, correctAnswer);
-          return;
-      }
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const checkNumberPrime = (num) => {
+  for (let i = 2; i < num - 1; i += 1) {
+    if (num === 0) {
+      return false;
     }
-    if (result === false) {
-      const correctAnswer = "'no'";
-      switch (userAnswer) {
-        case 'no':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        case 'No':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        default:
-          wrongAnswer(userAnswer, userName, correctAnswer);
-          return;
-      }
-    }
-    if (countCorrectAnswers === conditionsForVictory()) {
-      victory(userName);
-      return;
+    if (num % i === 0) {
+      return false;
     }
   }
+  return true;
 };
+const generateRound = () => {
+  const question = getRandomNumber(1, 100);
+  const correctAnswer = checkNumberPrime(question) === true ? 'yes' : 'no';
+  return [question, correctAnswer];
+};
+const brainPrime = () => {
+  const rounds = [];
+  for (let i = 0; i < roundCount; i += 1) {
+    rounds[i] = generateRound();
+  }
+  return engine(rounds, gameDescription);
+};
+
 export default brainPrime;

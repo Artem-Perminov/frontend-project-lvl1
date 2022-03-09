@@ -1,55 +1,19 @@
-import {
-  getRandomNumber,
-  parityChecking,
-  countOfRounds,
-  greeting,
-  answer,
-  wrongAnswer,
-  rightAnswer,
-  conditionsForVictory,
-  victory,
-} from '../index.js';
+import engine, { roundCount } from '../index.js';
+import getRandomNumber from '../helpers.js';
 
-const brainEven = () => {
-  const userName = greeting();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let countCorrectAnswers = 0;
-  for (let i = 0; i < countOfRounds; i += 1) {
-    const randomNum = getRandomNumber(100);
-    console.log(`Question: ${randomNum}`);
-    const userAnswer = answer();
-    if (parityChecking(randomNum) === true) {
-      const correctAnswer = "'yes'";
-      switch (userAnswer) {
-        case 'yes':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        case 'Yes':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        default:
-          wrongAnswer(userAnswer, userName, correctAnswer);
-          return;
-      }
-    }
-    if (parityChecking(randomNum) === false) {
-      const correctAnswer = "'no'";
-      switch (userAnswer) {
-        case 'no':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        case 'No':
-          countCorrectAnswers = rightAnswer(countCorrectAnswers);
-          break;
-        default:
-          wrongAnswer(userAnswer, userName, correctAnswer);
-          return;
-      }
-    }
-    if (countCorrectAnswers === conditionsForVictory()) {
-      victory(userName);
-      return;
-    }
-  }
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+const parityChecking = (num) => num % 2 === 0;
+const generateRound = () => {
+  const question = getRandomNumber(1, 100);
+  const correctAnswer = parityChecking(question) ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
+const brainEven = () => {
+  const rounds = [];
+  for (let i = 0; i < roundCount; i += 1) {
+    rounds[i] = generateRound();
+  }
+  return engine(rounds, gameDescription);
+};
+
 export default brainEven;
