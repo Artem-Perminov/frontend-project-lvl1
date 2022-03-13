@@ -2,6 +2,7 @@ import { roundsCount, engine } from '../index.js';
 import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'What number is missing in the progression?';
+
 const getProgression = (progCoef) => {
   const progression = [];
   let firstRanNum = getRandomNumber(1, 100);
@@ -14,6 +15,7 @@ const getProgression = (progCoef) => {
   progression[posHiddenElement] = '..';
   return progression.join(' ');
 };
+
 const getProgressionNum = (progr, progCoef) => {
   let result;
   const valuesArr = progr.split(' ');
@@ -24,12 +26,14 @@ const getProgressionNum = (progr, progCoef) => {
   }
   return result;
 };
+
 const generateRound = () => {
   const progCoeff = getRandomNumber(1, 10);
   const question = getProgression(progCoeff);
   const correctAnswer = String(getProgressionNum(question, progCoeff));
   return [question, correctAnswer];
 };
+
 const brainProgression = () => {
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {

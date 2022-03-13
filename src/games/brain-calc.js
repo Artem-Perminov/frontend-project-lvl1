@@ -2,19 +2,12 @@ import { roundsCount, engine } from '../index.js';
 import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'What is the result of the expression?';
+
 const getRandomOperator = () => {
-  const num = Math.floor(Math.random() * 10);
-  if (num <= 3) {
-    return '+';
-  }
-  if (num > 3 && num <= 6) {
-    return '-';
-  }
-  if (num > 6) {
-    return '*';
-  }
-  return true;
+  const operators = ['+', '-', '*'];
+  return operators[getRandomNumber(0, operators.length - 1)];
 };
+
 const expressionResult = (operator, n1, n2) => {
   switch (operator) {
     case '+':
@@ -24,10 +17,10 @@ const expressionResult = (operator, n1, n2) => {
     case '*':
       return n1 * n2;
     default:
-      break;
+      throw new Error('unsupported operator');
   }
-  return true;
 };
+
 const generateRound = () => {
   const n1 = getRandomNumber(1, 100);
   const n2 = getRandomNumber(1, 100);
@@ -36,6 +29,7 @@ const generateRound = () => {
   const correctAnswer = String(expressionResult(operator, n1, n2));
   return [question, correctAnswer];
 };
+
 const brainCalc = () => {
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
