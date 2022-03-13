@@ -27,7 +27,7 @@ const generateRound = () => {
 const brainGcd = () => {
   const rounds = [];
   for (let i = 0; i < roundsCount; i += 1) {
-    rounds[i] = generateRound();
+    rounds.push(generateRound());
   }
   return engine(rounds, gameDescription);
 };
