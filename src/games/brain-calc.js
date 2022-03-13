@@ -1,4 +1,4 @@
-import engine, { roundCount } from '../index.js';
+import { roundsCount, engine } from '../index.js';
 import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'What is the result of the expression?';
@@ -38,7 +38,7 @@ const generateRound = () => {
 };
 const brainCalc = () => {
   const rounds = [];
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     rounds[i] = generateRound();
   }
   return engine(rounds, gameDescription);

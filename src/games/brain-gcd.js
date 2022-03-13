@@ -1,4 +1,4 @@
-import engine, { roundCount } from '../index.js';
+import { roundsCount, engine } from '../index.js';
 import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
@@ -23,7 +23,7 @@ const generateRound = () => {
 };
 const brainGcd = () => {
   const rounds = [];
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     rounds[i] = generateRound();
   }
   return engine(rounds, gameDescription);

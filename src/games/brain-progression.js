@@ -1,4 +1,4 @@
-import engine, { roundCount } from '../index.js';
+import { roundsCount, engine } from '../index.js';
 import getRandomNumber from '../helpers.js';
 
 const gameDescription = 'What number is missing in the progression?';
@@ -32,7 +32,7 @@ const generateRound = () => {
 };
 const brainProgression = () => {
   const rounds = [];
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     rounds[i] = generateRound();
   }
   return engine(rounds, gameDescription);
